@@ -1,0 +1,10 @@
+
+.vs/*
+.vscode/*
+Library/*
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+P2_Portal.sln
+UserSetting/*
+Logs/*
+obj/*
