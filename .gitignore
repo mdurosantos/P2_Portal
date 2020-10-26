@@ -5,6 +5,6 @@ Library/*
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
 P2_Portal.sln
-UserSetting/*
+UserSettings/*
 Logs/*
 obj/*
