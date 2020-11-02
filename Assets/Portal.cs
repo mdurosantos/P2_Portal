@@ -5,9 +5,9 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField]
-    Transform virtualPortal;
+    public Transform virtualPortal;
     [SerializeField]
-    Portal otherPortal;
+    public Portal otherPortal;
     public Camera cameraPortal;
     [SerializeField]
     Camera playerCamera;

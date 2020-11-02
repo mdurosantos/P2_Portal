@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 170637291624627373}
   - component: {fileID: 180085209939996327}
   - component: {fileID: 202030613345268769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PTK_Cube_1 1
-  m_TagString: Untagged
+  m_TagString: portal_enabled
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
