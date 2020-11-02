@@ -36,6 +36,9 @@ public class FPSController : MonoBehaviour
     [SerializeField] bool mOnGround;
     [SerializeField] bool mContactCeiling;
     [SerializeField] float mRunMultiplier;
+
+    
+
     [SerializeField] float mJumpMultiplier;
     private bool running = false;
     float mVerticalSpeed = 0.0f;
@@ -64,8 +67,7 @@ public class FPSController : MonoBehaviour
 
     private void Awake()
     {
-        mYaw = transform.rotation.eulerAngles.y;
-        mPitch = mPitchController.transform.rotation.eulerAngles.x;
+        setYawAndPitch();
         mCharacterController = GetComponent<CharacterController>();
         //weaponAnimator = GetComponentInChildren<Animator>();
         shooting = GetComponent<PlayerShoot>();
@@ -189,4 +191,10 @@ public class FPSController : MonoBehaviour
         }
     }
 
+
+    public void setYawAndPitch()
+    {
+        mYaw = transform.rotation.eulerAngles.y;
+        mPitch = mPitchController.transform.rotation.eulerAngles.x;
+    }
 }

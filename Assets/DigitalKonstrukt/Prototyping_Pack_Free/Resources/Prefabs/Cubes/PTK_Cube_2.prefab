@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 33950897385114546}
   - component: {fileID: 23596130846723570}
   - component: {fileID: 64460594025850932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PTK_Cube_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
