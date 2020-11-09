@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - portal_enabled
+  - Cube
+  - RefractionCube
   layers:
   - Default
   - TransparentFX
