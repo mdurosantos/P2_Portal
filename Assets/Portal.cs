@@ -14,6 +14,10 @@ public class Portal : MonoBehaviour
     [SerializeField]
     float clipPlaneOffset = 1.0f;
 
+    [SerializeField] LayerMask layerMask;
+
+    private Transform attachedTo;
+
     private void Update()
     {
         Vector3 local_position = virtualPortal.InverseTransformPoint(playerCamera.transform.position);
@@ -23,5 +27,15 @@ public class Portal : MonoBehaviour
         otherPortal.cameraPortal.transform.forward = otherPortal.transform.TransformDirection(local_direction);
 
         otherPortal.cameraPortal.nearClipPlane = (transform.position - playerCamera.transform.position).magnitude + clipPlaneOffset;
+    }
+
+    public Transform AttachedTo()
+    {
+        Ray ray = new Ray(transform.position, transform.TransformDirection(Vector3.back));
+        if(Physics.Raycast(ray,out RaycastHit hit, 0.02f, layerMask))
+        {
+            attachedTo = hit.transform;
+        }
+        return attachedTo;
     }
 }
