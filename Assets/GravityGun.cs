@@ -19,11 +19,15 @@ public class GravityGun : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(2))
+        if (!attachedBody && Input.GetMouseButtonDown(2))
         {
             attachedBody = gravityShoot();
         }
-        if (Input.GetMouseButton(2))
+        else if (attachedBody && Input.GetKeyDown(KeyCode.E))
+            detachObject(throwForce);
+        else if (attachedBody && Input.GetMouseButtonDown(2))
+            detachObject(0);
+        else
         {
             if(attachedBody != null)
             {
@@ -39,11 +43,7 @@ public class GravityGun : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            if(attachedBody)
-                detachObject(throwForce);
-        }
+        
         
     }
 
