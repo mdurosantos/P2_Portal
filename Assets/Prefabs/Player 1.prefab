@@ -218,7 +218,7 @@ MonoBehaviour:
   mSpeedYaw: 10
   mSpeedPitch: 10
   mMinPitch: -80
-  mMaxPitch: 50
+  mMaxPitch: 40
   mPitchController: {fileID: 9047076520231059739}
   mInvertPitch: 1
   mInvertYaw: 0

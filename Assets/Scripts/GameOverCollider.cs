@@ -10,8 +10,9 @@ public class GameOverCollider : MonoBehaviour
         
         if (other.gameObject.GetComponent<FPSController>() != null)
         {
-            gameOver = GameOverScript.GetInstance();
-            gameOver.GameOver();
+            //gameOver = GameOverScript.GetInstance();
+            //gameOver.GameOver();
+            Time.timeScale = 0;
         }
     }
 }
