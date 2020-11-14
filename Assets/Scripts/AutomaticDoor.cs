@@ -11,22 +11,16 @@ public class AutomaticDoor : MonoBehaviour
         anim = GetComponent<Animation>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void openDoor ()
     {
-        if (other.gameObject.GetComponent<FPSController>() != null)
-        {
-            anim.CrossFade("AutomaticDoorOpen");
-            AudioManager.PlaySound("door");
-        }
+        anim.CrossFade("AutomaticDoorOpen");
+        //AudioManager.PlaySound("door");        
     }
 
-    private void OnTriggerExit(Collider other)
+    public void closeDoor()
     {
-        if (other.gameObject.GetComponent<FPSController>() != null)
-        {
-            anim.CrossFade("AutomaticDoorClose");
-            AudioManager.PlaySound("door");
-        }
+        anim.CrossFade("AutomaticDoorClose");
+        //AudioManager.PlaySound("door");
     }
 
     
