@@ -50,7 +50,7 @@ public class GameOverScript : MonoBehaviour
 
                 foreach (GameObject laser in lasers)
                 {
-                    if(laser.TryGetComponent(out Laser l))
+                    if (laser.TryGetComponent(out Laser l))
                         l.alreadyShot = false;
                 }
                 
