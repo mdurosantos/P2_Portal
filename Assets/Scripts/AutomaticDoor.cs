@@ -14,13 +14,13 @@ public class AutomaticDoor : MonoBehaviour
     public void openDoor ()
     {
         anim.CrossFade("AutomaticDoorOpen");
-        //AudioManager.PlaySound("door");        
+        AudioManager.PlaySound("door");        
     }
 
     public void closeDoor()
     {
         anim.CrossFade("AutomaticDoorClose");
-        //AudioManager.PlaySound("door");
+        AudioManager.PlaySound("door");
     }
 
     

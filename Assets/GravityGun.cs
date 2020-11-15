@@ -24,9 +24,15 @@ public class GravityGun : MonoBehaviour
             attachedBody = gravityShoot();
         }
         else if (attachedBody && Input.GetKeyDown(KeyCode.E))
+        {
+            AudioManager.PlaySound("gravity");
             detachObject(throwForce);
+        }            
         else if (attachedBody && Input.GetMouseButtonDown(2))
+        {
+            AudioManager.PlaySound("gravity");
             detachObject(0);
+        }         
         else
         {
             if(attachedBody != null)
@@ -80,6 +86,7 @@ public class GravityGun : MonoBehaviour
             initialPosition = rb.transform.position;
             initialRotation = rb.transform.rotation;
             currentGravityGunState = GravityGunState.attaching;
+            AudioManager.PlaySound("gravity");
             return rb;
         }
         return null;
