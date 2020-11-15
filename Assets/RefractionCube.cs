@@ -12,6 +12,10 @@ public class RefractionCube : MonoBehaviour
     LayerMask m_CollisionLayerMask;
     bool m_CreateRefraction = true;
 
+    public bool alreadyShot = false;
+
+    private GameOverScript gameOver;
+
     void Update() {
         m_LineRenderer.gameObject.SetActive(m_CreateRefraction);
         m_CreateRefraction =false;
@@ -38,10 +42,18 @@ public class RefractionCube : MonoBehaviour
                 Destroy(l_RaycastHit.collider.gameObject);
                 AudioManager.PlaySound("fired");
             }
-            else if (l_RaycastHit.transform.gameObject.TryGetComponent(out FPSController player))
+            else if(l_RaycastHit.collider.tag == "Player")
             {
-                //gameOver();
-                Debug.Log("GameOver");
+                if(gameOver == null)
+                {
+                    gameOver = GameOverScript.GetInstance();
+                }
+
+                if(!alreadyShot)
+                {
+                    gameOver.GameOver();
+                    alreadyShot = true;
+                } 
             }
         }
         m_LineRenderer.SetPosition(1, l_EndRaycastPosition); }

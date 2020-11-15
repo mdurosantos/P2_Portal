@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scalable : MonoBehaviour
 {    
-    private Vector3 initialScale;
+    public Vector3 initialScale;
 
     public void Awake()
     {

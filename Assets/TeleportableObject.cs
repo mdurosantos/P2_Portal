@@ -32,6 +32,10 @@ public class TeleportableObject : MonoBehaviour
 
                     if(actualFactorScale != factorScale)
                     {
+                        if(factorScale == 1)
+                        {
+                            transform.localScale = scalable.initialScale;
+                        }
                         transform.localScale *= factorScale;
                     }
 

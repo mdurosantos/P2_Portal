@@ -8,6 +8,9 @@ public class GameOverScript : MonoBehaviour
     private CheckPointController checkPoint;
     private static GameOverScript instance;
     private bool gameOver = false;
+
+
+
     public void Awake()
     {
         instance = this;
@@ -22,6 +25,7 @@ public class GameOverScript : MonoBehaviour
         Time.timeScale = 0.0f;
         this.GetComponent<Canvas>().enabled = true; 
         gameOver = true;  
+        player.GetComponent<Collider>().enabled = false;
     }
 
     void Update()
@@ -38,9 +42,25 @@ public class GameOverScript : MonoBehaviour
                 Time.timeScale = 1.0f;
                 this.GetComponent<Canvas>().enabled = false;
                 player.position = checkPoint.ActualCheckPoint().transform.position;
-                player.GetComponent<HealthSystem>().Revive();
-
                 gameOver = false;
+                player.GetComponent<Collider>().enabled = true;
+
+                GameObject [] lasers = GameObject.FindGameObjectsWithTag("Enemy");
+                GameObject [] refractionCubes = GameObject.FindGameObjectsWithTag("RefractionCube");
+
+                foreach (GameObject laser in lasers)
+                {
+                    if(laser.TryGetComponent(out Laser l))
+                        l.alreadyShot = false;
+                }
+                
+                foreach (GameObject refractionCube in refractionCubes)
+                {
+                    if(refractionCube.TryGetComponent(out RefractionCube l))
+                        l.alreadyShot = false;
+                }
+                //player.GetComponent<HealthSystem>().Revive();
+
             }
             if(Input.GetKey(KeyCode.Space))
             {

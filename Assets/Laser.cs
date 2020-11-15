@@ -14,6 +14,8 @@ public class Laser : MonoBehaviour
 
     private GameOverScript gameOver;
 
+    public bool alreadyShot = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -27,14 +29,18 @@ public class Laser : MonoBehaviour
             out RaycastHit l_RaycastHit, m_MaxDistance, m_CollisionLayerMask.value))
         {
             lastPoint = Vector3.forward * l_RaycastHit.distance;
-            if(l_RaycastHit.transform.gameObject.TryGetComponent(out FPSController player))
+            if(l_RaycastHit.collider.tag == "Player")
             {
                 if(gameOver == null)
                 {
                     gameOver = GameOverScript.GetInstance();
                 }
 
-                gameOver.GameOver();
+                if(!alreadyShot)
+                {
+                    gameOver.GameOver();
+                    alreadyShot = true;
+                } 
             }
             else if (l_RaycastHit.collider.tag == "RefractionCube")
             {
@@ -63,5 +69,16 @@ public class Laser : MonoBehaviour
     public void deactivateLaser()
     {
         isActive = false;
+    }
+
+    public void ReactivateLaser()
+    {
+        StartCoroutine(Coroutine());
+    }
+
+    IEnumerator Coroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        alreadyShot = false;
     }
 }

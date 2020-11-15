@@ -6,11 +6,14 @@ public class Ending : MonoBehaviour
 {
     [SerializeField] private Canvas end;
     private bool ended = false;
-    public void OnTriggerEnter()
+    public void OnTriggerEnter(Collider other)
     {
-        end.enabled = true;
-        Time.timeScale = 0.0f;
-        ended = true;
+        if(other.tag == "Player")
+        {
+            end.enabled = true;
+            Time.timeScale = 0.0f;
+            ended = true;
+        }
     }
 
     void Update()
