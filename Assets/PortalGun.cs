@@ -58,6 +58,7 @@ public class PortalGun : MonoBehaviour
             portal.forward = portalPreview.forward;
             portal.localScale = portalPreview.localScale;
             portalPreview.GetComponent<PortalPreview>().InitialScale();
+            AudioManager.PlaySound("portalgun");
         }
     }
 }
