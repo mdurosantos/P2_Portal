@@ -9089,8 +9089,7 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 2144551611}
-    m_RemovedComponents:
-    - {fileID: 8501207338691746399, guid: 1fc4b98466cf1e941b934841adfc8a76, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc4b98466cf1e941b934841adfc8a76, type: 3}
 --- !u!4 &992138933 stripped
 Transform:
@@ -15592,8 +15591,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8430062039215867319, guid: 86daa4e87791e494c9f85e7d07d69ae5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86daa4e87791e494c9f85e7d07d69ae5, type: 3}
 --- !u!1001 &1714913687
 PrefabInstance:

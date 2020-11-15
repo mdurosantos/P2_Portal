@@ -12,6 +12,12 @@ public class PortalPreview : MonoBehaviour
     [SerializeField] float maxValidDistance = 1f;
     [SerializeField] float maxValidAngle = 20f;
 
+    private Vector3 initialScale;
+
+    public void Awake()
+    {
+        initialScale = transform.localScale;
+    }
 
     public bool isValidPosition(Transform cameraPlayer)
     {
@@ -31,5 +37,27 @@ public class PortalPreview : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void ResizePortal(float scaleFactor, bool augment)
+    {
+        Vector3 scale = transform.localScale;
+        if(augment)
+        {
+            scale.x *= scaleFactor;
+            scale.y *= scaleFactor;
+        }
+        else 
+        {
+            scale.x /= scaleFactor;
+            scale.y /= scaleFactor;
+        }
+
+        transform.localScale = scale;
+    }
+
+    public void InitialScale()
+    {
+        transform.localScale = initialScale;
     }
 }

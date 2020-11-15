@@ -14,6 +14,13 @@ public class Portal : MonoBehaviour
     [SerializeField]
     float clipPlaneOffset = 1.0f;
 
+    private Vector3 initialScale;
+
+    public void Awake()
+    {
+        initialScale = transform.localScale;
+    }
+
     private void Update()
     {
         Vector3 local_position = virtualPortal.InverseTransformPoint(playerCamera.transform.position);
@@ -23,5 +30,23 @@ public class Portal : MonoBehaviour
         otherPortal.cameraPortal.transform.forward = otherPortal.transform.TransformDirection(local_direction);
 
         otherPortal.cameraPortal.nearClipPlane = (transform.position - playerCamera.transform.position).magnitude + clipPlaneOffset;
+
     }
+
+    /*public float resizing()
+    {
+        return transform.localScale / initialScale;
+    }
+
+    /*private void ResizePortal()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0.0f ) // forward
+        {
+            transform.localScale *= scaleFactor;
+        }
+        else if(Input.GetAxis("Mouse ScrollWheel") < 0.0f)
+        {
+            transform.localScale /= scaleFactor;
+        }
+    }*/
 }

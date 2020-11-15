@@ -17,27 +17,23 @@ public class PortalGun : MonoBehaviour
     [SerializeField] Camera cameraPlayer;
     bool isValid;
 
+    private float scaleFactorPositive = 1.2f;
+
     void Update()
     {
         if(Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
             isValid = putPreview();
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                portalPreview.GetComponent<PortalPreview>().ResizePortal(scaleFactorPositive, Input.GetAxis("Mouse ScrollWheel") > 0.0f );
+            }
         }
         portalPreview.gameObject.SetActive(isValid);
 
-        //Extraer función do seguinte
-        if (Input.GetMouseButtonUp(0) && isValid)
-        {
-            portalA.gameObject.SetActive(true);
-            portalA.position = portalPreview.position;
-            portalA.forward = portalPreview.forward;
-        }
-        if (Input.GetMouseButtonUp(1) && isValid)
-        {
-            portalB.gameObject.SetActive(true);
-            portalB.position = portalPreview.position;
-            portalB.forward = portalPreview.forward;
-        }
+        createPortal(Input.GetMouseButtonUp(0), portalA);
+        createPortal(Input.GetMouseButtonUp(1), portalB);
     }
 
     bool putPreview()
@@ -51,5 +47,17 @@ public class PortalGun : MonoBehaviour
         }
         
         return false;
+    }
+
+    private void createPortal(bool buttonUp, Transform portal)
+    {
+        if(buttonUp &&  isValid)
+        {
+            portal.gameObject.SetActive(true);
+            portal.position = portalPreview.position;
+            portal.forward = portalPreview.forward;
+            portal.localScale = portalPreview.localScale;
+            portalPreview.GetComponent<PortalPreview>().InitialScale();
+        }
     }
 }
