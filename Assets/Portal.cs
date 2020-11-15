@@ -16,6 +16,7 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
+        
         Vector3 local_position = virtualPortal.InverseTransformPoint(playerCamera.transform.position);
         otherPortal.cameraPortal.transform.position = otherPortal.transform.TransformPoint(local_position);
 
@@ -23,5 +24,7 @@ public class Portal : MonoBehaviour
         otherPortal.cameraPortal.transform.forward = otherPortal.transform.TransformDirection(local_direction);
 
         otherPortal.cameraPortal.nearClipPlane = (transform.position - playerCamera.transform.position).magnitude + clipPlaneOffset;
+        
+        
     }
 }

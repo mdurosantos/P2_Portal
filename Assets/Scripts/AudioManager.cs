@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioClip shoot;
+    public static AudioClip portalgun;
     public static AudioClip door;
     public static AudioClip drop;
     public static AudioClip gravity;
@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        shoot = Resources.Load<AudioClip>("shoot");
+        portalgun = Resources.Load<AudioClip>("portalgun");
         door = Resources.Load<AudioClip>("door");
         drop = Resources.Load<AudioClip>("drop");
         gravity = Resources.Load<AudioClip>("gravity");
@@ -26,8 +26,8 @@ public class AudioManager : MonoBehaviour
     {
         switch (clip)
         {   
-            case "shoot":
-                audioSrc.PlayOneShot(shoot, 0.5f);
+            case "portalgun":
+                audioSrc.PlayOneShot(portalgun, 0.5f);
                 break;
             case "door":
                 audioSrc.PlayOneShot(door, 0.3f);

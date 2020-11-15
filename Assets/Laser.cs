@@ -30,15 +30,20 @@ public class Laser : MonoBehaviour
                 //gameOver();
                 Debug.Log("GameOver");
             }
-            if (l_RaycastHit.collider.tag == "RefractionCube")
+            else if (l_RaycastHit.collider.tag == "RefractionCube")
             {
                 //Reflect ray     
                 l_RaycastHit.collider.GetComponent<RefractionCube>().CreateRefraction();
             }
             //Other collisions 
-            if (l_RaycastHit.collider.tag == "LaserSwitch")
+            else if (l_RaycastHit.collider.tag == "LaserSwitch")
             {
                 l_RaycastHit.collider.GetComponent<LaserSwitch>().laserSwitchActivate();
+            }
+            else if (l_RaycastHit.collider.tag == "Enemy")
+            {
+                Destroy(l_RaycastHit.collider.gameObject);
+                AudioManager.PlaySound("fired");
             }
         }
         m_LineRenderer.SetPosition(1, lastPoint);

@@ -14,15 +14,18 @@ public class TeleportableObject : MonoBehaviour
     {
         if(other.gameObject.TryGetComponent(out Portal portal))
         {
-            Vector3 l_Position = portal.virtualPortal.transform.InverseTransformPoint(transform.position);
-            Vector3 l_Direction = portal.virtualPortal.transform.InverseTransformDirection(transform.forward);
-            teleportPosition = portal.otherPortal.transform.TransformPoint(l_Position);
-            teleportForward = portal.otherPortal.transform.TransformDirection(l_Direction);
+            if (portal.otherPortal.isActiveAndEnabled)
+            {
+                Vector3 l_Position = portal.virtualPortal.transform.InverseTransformPoint(transform.position);
+                Vector3 l_Direction = portal.virtualPortal.transform.InverseTransformDirection(transform.forward);
+                teleportPosition = portal.otherPortal.transform.TransformPoint(l_Position);
+                teleportForward = portal.otherPortal.transform.TransformDirection(l_Direction);
 
-            teleportPosition += teleportForward * teleportOffset;
-            //GetComponent<CharacterController>().enabled = false;
-            teleporting = true;
-            
+                teleportPosition += teleportForward * teleportOffset;
+                //GetComponent<CharacterController>().enabled = false;
+                teleporting = true;
+            }
+   
         }
     }
 
