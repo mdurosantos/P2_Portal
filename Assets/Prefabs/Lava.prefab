@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3786509132749401450}
   - component: {fileID: 3764563644784343020}
   - component: {fileID: 6409760844616336637}
+  - component: {fileID: 476848070634796343}
   m_Layer: 8
   m_Name: Lava
   m_TagString: Untagged
@@ -107,5 +108,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58406243a5abbf34680e7b7c65f8bee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &476848070634796343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809231215945259272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96df9e3f49674364183f08028f927a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

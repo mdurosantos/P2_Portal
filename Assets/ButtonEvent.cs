@@ -15,6 +15,7 @@ public class ButtonEvent : MonoBehaviour
     {
         if(isActive)ev.Invoke();
         if (oneUseOnly) isActive = false;
+        
     }
     
 }

@@ -34,6 +34,7 @@ public class TeleportableObject : MonoBehaviour
             transform.forward = teleportForward;
             teleporting = false;
             if (TryGetComponent(out FPSController controller)) controller.setYawAndPitch();
+            if (TryGetComponent(out Rigidbody rigidbody)) rigidbody.velocity = Vector3.zero;
             //GetComponent<CharacterController>().enabled = true;
         }
     }

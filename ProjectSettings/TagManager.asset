@@ -9,6 +9,7 @@ TagManager:
   - RefractionCube
   - laser
   - LaserSwitch
+  - Enemy
   layers:
   - Default
   - TransparentFX

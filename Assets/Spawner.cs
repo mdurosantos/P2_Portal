@@ -8,7 +8,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] Transform spawnTransform;
     public void Spawn()
     {
-        if(spawnTransform!= null) Instantiate(spawnObject, spawnTransform.position, spawnTransform.rotation);
+        AudioManager.PlaySound("drop");
+        if (spawnTransform!= null) Instantiate(spawnObject, spawnTransform.position, spawnTransform.rotation);
         else Instantiate(spawnObject, transform.position, transform.rotation);
     }
 }
