@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class ButtonDoor : MonoBehaviour
 {
-    Animation anim;
     [SerializeField] GameObject door;
     int elementsInButton = 0;
-
-    private void Awake()
-    {
-        anim = GetComponent<Animation>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
