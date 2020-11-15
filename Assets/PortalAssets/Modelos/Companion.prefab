@@ -2550,6 +2550,7 @@ GameObject:
   - component: {fileID: 54089449008270882}
   - component: {fileID: 65803225901186192}
   - component: {fileID: -4396387821307322487}
+  - component: {fileID: -213382885788762252}
   m_Layer: 0
   m_Name: Companion
   m_TagString: Cube
@@ -2663,7 +2664,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83c11000e60c6d45aef20e4bbad936c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportOffset: 2
+  teleportOffset: 2.5
+--- !u!114 &-213382885788762252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954579138522104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3f43171ad0145458019147fe0f5d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1996072827028512
 GameObject:
   m_ObjectHideFlags: 0

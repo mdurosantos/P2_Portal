@@ -33,9 +33,9 @@ public class Portal : MonoBehaviour
 
     }
 
-    /*public float resizing()
+    public float ScaleFactor()
     {
-        return transform.localScale / initialScale;
+        return transform.localScale.x / initialScale.x;
     }
 
     /*private void ResizePortal()

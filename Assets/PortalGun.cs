@@ -17,7 +17,7 @@ public class PortalGun : MonoBehaviour
     [SerializeField] Camera cameraPlayer;
     bool isValid;
 
-    private float scaleFactorPositive = 1.2f;
+    private float scaleFactor = 1.2f;
 
     void Update()
     {
@@ -25,10 +25,16 @@ public class PortalGun : MonoBehaviour
         {
             isValid = putPreview();
 
+            portalPreview.gameObject.GetComponentInChildren<MeshRenderer>().enabled = true;
+
             if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
-                portalPreview.GetComponent<PortalPreview>().ResizePortal(scaleFactorPositive, Input.GetAxis("Mouse ScrollWheel") > 0.0f );
+                portalPreview.GetComponentInChildren<PortalPreview>().ResizePortal(scaleFactor, Input.GetAxis("Mouse ScrollWheel") > 0.0f );
             }
+        }
+        else
+        {
+            portalPreview.gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
         portalPreview.gameObject.SetActive(isValid);
 

@@ -12,6 +12,8 @@ public class Laser : MonoBehaviour
     LayerMask m_CollisionLayerMask;
     private bool isActive = true;
 
+    private GameOverScript gameOver;
+
     // Update is called once per frame
     void Update()
     {
@@ -27,8 +29,12 @@ public class Laser : MonoBehaviour
             lastPoint = Vector3.forward * l_RaycastHit.distance;
             if(l_RaycastHit.transform.gameObject.TryGetComponent(out FPSController player))
             {
-                //gameOver();
-                Debug.Log("GameOver");
+                if(gameOver == null)
+                {
+                    gameOver = GameOverScript.GetInstance();
+                }
+
+                gameOver.GameOver();
             }
             else if (l_RaycastHit.collider.tag == "RefractionCube")
             {

@@ -13,10 +13,14 @@ public class PortalPreview : MonoBehaviour
     [SerializeField] float maxValidAngle = 20f;
 
     private Vector3 initialScale;
+    private float maxScale;
+    private float minScale;
 
     public void Awake()
     {
         initialScale = transform.localScale;
+        maxScale = initialScale.x * 2.0f;
+        minScale = initialScale.x * 0.5f;
     }
 
     public bool isValidPosition(Transform cameraPlayer)
@@ -52,8 +56,9 @@ public class PortalPreview : MonoBehaviour
             scale.x /= scaleFactor;
             scale.y /= scaleFactor;
         }
-
-        transform.localScale = scale;
+        
+        if(scale.x >= minScale && scale.x <= maxScale)
+            transform.localScale = scale;
     }
 
     public void InitialScale()
