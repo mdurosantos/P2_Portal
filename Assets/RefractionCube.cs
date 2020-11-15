@@ -29,6 +29,10 @@ public class RefractionCube : MonoBehaviour
                 l_RaycastHit.collider.GetComponent<RefractionCube>().CreateRefraction();
             }
             //Other collisions  
+            if (l_RaycastHit.collider.tag == "LaserSwitch")
+            {
+                l_RaycastHit.collider.GetComponent<LaserSwitch>().laserSwitchActivate();
+            }
         }
         m_LineRenderer.SetPosition(1, l_EndRaycastPosition); }
 }
